@@ -1,0 +1,48 @@
+// Version: 1.0.0
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type Store__1059667885 =
+  {
+    annualRevenue : Float;
+    brand : Text;
+    history : Text;
+    id : Text;
+    name : Text;
+    revenue : [Float];
+    salesRep : Text;
+    status : Text;
+    storeCode : Text;
+    subscriptionType : Text;
+    telephony : Text
+  };
+type Task__972485619 =
+  {
+    createdAt : Int;
+    description : Text;
+    dueDate : Text;
+    id : Nat;
+    priority : Text;
+    status : Text;
+    storeId : Text;
+    title : Text
+  };
+actor {
+  stable var nextTaskId : Nat;
+  stable storeMap :
+    {
+      var root : Node__46230540<Text, Store__1059667885>;
+      var size : Nat__490723111
+    };
+  stable taskMap :
+    {
+      var root : Node__46230540<Nat, Task__972485619>;
+      var size : Nat__490723111
+    }
+};

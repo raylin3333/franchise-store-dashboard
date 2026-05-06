@@ -1,0 +1,67 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type Task = 
+ record {
+   createdAt: int;
+   description: text;
+   dueDate: text;
+   id: nat;
+   priority: text;
+   status: text;
+   storeId: text;
+   title: text;
+ };
+type Store = 
+ record {
+   annualRevenue: float64;
+   brand: text;
+   history: text;
+   id: text;
+   name: text;
+   revenue: vec float64;
+   salesRep: text;
+   status: text;
+   storeCode: text;
+   subscriptionType: text;
+   telephony: text;
+ };
+service : {
+  createTask: (title: text, description: text, storeId: text, priority: 
+   text, dueDate: text, createdAt: int) -> ();
+  deleteTask: (taskId: nat) -> ();
+  fetchSheetCSV: (sheetUrl: text) -> (variant {
+                                        err: text;
+                                        ok: text;
+                                      });
+  getAllTasks: () -> (vec Task) query;
+  getStoreById: (id: text) -> (Store) query;
+  getStores: () -> (vec Store) query;
+  getStoresByBrand: (brand: text) -> (vec Store) query;
+  getStoresByStatus: (status: text) -> (vec Store) query;
+  getStoresBySubscription: (subscriptionType: text) -> (vec Store) query;
+  getTasksByPriority: (priority: text) -> (vec Task) query;
+  getTasksByStatus: (status: text) -> (vec Task) query;
+  getTasksByStore: (storeId: text) -> (vec Task) query;
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+  updateTask: (taskId: nat, task: Task) -> ();
+}

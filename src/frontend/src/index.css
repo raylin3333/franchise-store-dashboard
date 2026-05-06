@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    /* Blue palette */
+    /* Periwinkle #B8C6E8 */
+    --background: 0.808 0.055 254;
+    /* Dark navy #1A1A2E */
+    --foreground: 0.18 0.055 265;
+    /* White #FFFFFF for cards */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.055 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.055 265;
+    /* Medium blue #4A7CF7 */
+    --primary: 0.56 0.18 263;
+    --primary-foreground: 1 0 0;
+    /* Cornflower blue #5B8DEF */
+    --secondary: 0.61 0.155 255;
+    --secondary-foreground: 1 0 0;
+    /* Very light blue #F5F8FF */
+    --muted: 0.975 0.015 254;
+    /* Medium gray-blue #8899BB */
+    --muted-foreground: 0.62 0.06 254;
+    /* Lighter blue #A0B8F0 */
+    --accent: 0.76 0.085 255;
+    --accent-foreground: 0.18 0.055 265;
+    --destructive: 0.56 0.2 25;
+    --destructive-foreground: 1 0 0;
+    /* Light blue-gray #DCE4F5 */
+    --border: 0.905 0.035 252;
+    --input: 0.905 0.035 252;
+    --ring: 0.56 0.18 263;
+    /* Charts */
+    --chart-1: 0.56 0.18 263;
+    --chart-2: 0.61 0.155 255;
+    --chart-3: 0.76 0.085 255;
+    --chart-4: 0.72 0.17 148;
+    --chart-5: 0.78 0.14 65;
+    /* Sidebar */
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.18 0.055 265;
+    --sidebar-primary: 0.56 0.18 263;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.975 0.015 254;
+    --sidebar-accent-foreground: 0.18 0.055 265;
+    --sidebar-border: 0.905 0.035 252;
+    --sidebar-ring: 0.56 0.18 263;
+    /* Named semantic blue tokens */
+    --periwinkle: 0.808 0.055 254;
+    --cornflower: 0.61 0.155 255;
+    --navy: 0.18 0.055 265;
+    --sky-blue: 0.76 0.085 255;
+    --mist: 0.62 0.06 254;
+    --positive: 0.72 0.17 148;
+    --negative: 0.56 0.2 25;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
